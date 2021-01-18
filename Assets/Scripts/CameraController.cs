@@ -17,7 +17,20 @@ public class CameraController : MonoBehaviour
      private bool doMovement = true;
 
      private enum Direction { Up, Down, Right, Left, None };
-     
+
+
+     private Camera cam;
+     private float targetZoom;
+     private float zoomFactor = 3f;
+     private float zoomLerpSpeed = 10f;
+     private float minZoom = 4.5f;
+     private float maxZoom = 9f;
+
+     private void Start()
+     {
+          cam = Camera.main;
+          targetZoom = cam.orthographicSize;
+     }
      private void Update()
      {
           if (Input.GetKeyDown(KeyCode.Escape))
@@ -65,7 +78,7 @@ public class CameraController : MonoBehaviour
                transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
           }
 
-          //ApplyZoom();
+          ApplyZoom();
      }
 
      private bool IsMoveToUp()
@@ -103,11 +116,8 @@ public class CameraController : MonoBehaviour
      private void ApplyZoom()
      {
           float scroll = Input.GetAxis("Mouse ScrollWheel");
-          Vector3 pos = transform.position;
-          Debug.Log(scroll);
-          pos.z -= scroll * 1000 * scrollSpeed * Time.deltaTime;
-          pos.z = Mathf.Clamp(pos.y, minZ, maxZ);
-
-          transform.position = pos;
+          targetZoom -= scroll * zoomFactor;
+          targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom);
+          cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoom, Time.deltaTime * zoomLerpSpeed);
      }
 }

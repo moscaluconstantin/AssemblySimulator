@@ -8,7 +8,6 @@ public class Roller : MonoBehaviour
 
      private void OnTriggerEnter2D(Collider2D collision)
      {
-          Debug.Log("Trigger entered");
           collision.gameObject.GetComponent<BaseObject>().SetTargetPosition(targetPoint.transform.position);
      }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseObject : MonoBehaviour
 {
      public float price;
-     public float speed;
+     //public float speed;
      public float lerpDuration;
 
      private Vector3 lastPoint;
@@ -21,9 +21,11 @@ public class BaseObject : MonoBehaviour
      }
      private void Update()
      {
-          transform.position = Vector3.Lerp(lastPoint, targetPoint, elapsedTime / lerpDuration);
-
-          if (transform.position == targetPoint)
+          if (transform.position != targetPoint)
+          {
+               transform.position = Vector3.Lerp(lastPoint, targetPoint, elapsedTime / lerpDuration);
+          }
+          else
           {
                lastPoint = transform.position;
                targetPoint = tempTargetPoint;

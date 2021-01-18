@@ -9,7 +9,7 @@ public class Starter : MonoBehaviour
      public GameObject targetPoint;
      public int elementsPerSecond;
 
-     private float generationPeriod = 1f;
+     public float generationPeriod = 1f;
      private float passedTime = 0f;
 
      private void Update()

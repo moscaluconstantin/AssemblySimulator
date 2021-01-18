@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 80
-  speed: 0
   lerpDuration: 0.5
+  targetPoint: {x: 0, y: 0, z: 0}
+  tempTargetPoint: {x: 0, y: 0, z: 0}
 --- !u!61 &6476607720966493787
 BoxCollider2D:
   m_ObjectHideFlags: 0
