@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8642494941006667419}
   m_Layer: 0
   m_Name: Starter
-  m_TagString: Untagged
+  m_TagString: Starter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   generationPoint: {fileID: 7457593579784025907}
   targetPoint: {fileID: 3683091411052960551}
   elementsPerSecond: 1
+  generationPeriod: 1
 --- !u!1 &3683091411052960551
 GameObject:
   m_ObjectHideFlags: 0

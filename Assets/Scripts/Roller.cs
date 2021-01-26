@@ -8,6 +8,8 @@ public class Roller : MonoBehaviour
 
      private void OnCollisionEnter2D(Collision2D collision)
      {
-          collision.gameObject.GetComponent<BaseObject>().SetTargetPosition(targetPoint.transform.position);
+          BaseObject baseObject = collision.gameObject.GetComponent<BaseObject>();
+          baseObject.SetTargetPosition(targetPoint.transform.position);
+          baseObject.Revive();
      }
 }

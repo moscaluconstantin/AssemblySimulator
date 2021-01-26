@@ -1,25 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
      public Color hoverColor;
 
-     private GameObject device;
+     [Header("Optional")]
+     public GameObject device;
 
      private Renderer rend;
      private Color startColor;
+
+     private BuildManager buildManager;
 
      private void Start()
      {
           rend = GetComponent<Renderer>();
           startColor = rend.material.color;
+          buildManager = BuildManager.instance;
      }
      private void OnMouseEnter()
      {
+          if (EventSystem.current.IsPointerOverGameObject())
+               return;
+
+          if (!buildManager.CanBuild)
+               return;
+
           rend.material.color = hoverColor;
-          //Debug.Log("Mouse in " + transform.position);
      }
      private void OnMouseExit()
      {
@@ -27,13 +37,18 @@ public class Node : MonoBehaviour
      }
      private void OnMouseDown()
      {
+          if (EventSystem.current.IsPointerOverGameObject())
+               return;
+
+          if (!buildManager.CanBuild)
+               return;
+
           if (device != null)
           {
                Debug.Log("Can't build here.");
                return;
           }
 
-          GameObject deviceToBuild = BuildManager.instance.GetDeviceToBuild();
-          device = (GameObject)Instantiate(deviceToBuild, transform.position, Quaternion.identity);
+          buildManager.BuildDeviceOn(this);
      }
 }

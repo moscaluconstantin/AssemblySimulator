@@ -5,9 +5,13 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour
 {
      public static BuildManager instance;
-     public GameObject standardDeviceToBuild;
-     
-     private GameObject deviceToBuild;
+     public GameObject starterPrefab;
+     public GameObject rollerPrefab;
+     public GameObject sellerPrefab;
+
+     private DeviceBlueprint deviceToBuild;
+
+     public bool CanBuild { get { return deviceToBuild != null; } }
 
      private void Awake()
      {
@@ -18,13 +22,22 @@ public class BuildManager : MonoBehaviour
           }
           Debug.Log("More than onw build manager.");
      }
-     private void Start()
+     
+     public void SelectDeviceToBuild(DeviceBlueprint device)
      {
-          deviceToBuild = standardDeviceToBuild;
+          deviceToBuild = device;
      }
-
      public GameObject GetDeviceToBuild()
      {
-          return deviceToBuild;
+          return deviceToBuild.prefab;
+     }
+     public void BuildDeviceOn(Node node)
+     {
+          if (SimulationStats.Money < deviceToBuild.cost)
+               return;
+
+          SimulationStats.Money -= deviceToBuild.cost;
+
+          node.device = (GameObject)Instantiate(deviceToBuild.prefab, node.transform.position, Quaternion.identity);
      }
 }

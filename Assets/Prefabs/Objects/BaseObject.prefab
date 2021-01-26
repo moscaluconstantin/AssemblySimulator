@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 80
   lerpDuration: 0.5
+  lifeDuration: 3
 --- !u!61 &6476607720966493787
 BoxCollider2D:
   m_ObjectHideFlags: 0

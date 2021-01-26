@@ -61,8 +61,12 @@
     <Compile Include="Assets\Scripts\BaseObject.cs" />
     <Compile Include="Assets\Scripts\Roller.cs" />
     <Compile Include="Assets\Scripts\Starter.cs" />
-    <Compile Include="Assets\Scripts\Seller.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Seller.cs" />
+    <Compile Include="Assets\Scripts\Shop.cs" />
+    <Compile Include="Assets\Scripts\DeviceBlueprint.cs" />
+    <Compile Include="Assets\Scripts\SimulationStats.cs" />
+    <Compile Include="Assets\Scripts\InGameMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

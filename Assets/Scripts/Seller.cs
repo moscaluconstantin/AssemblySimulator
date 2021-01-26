@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Seller : MonoBehaviour
 {
-     public float Money;
-
-     private void Start()
-     {
-          Money = 0;
-     }
      private void OnCollisionEnter2D(Collision2D collision)
      {
-          Money += collision.gameObject.GetComponent<BaseObject>().price;
+          SimulationStats.Money += collision.gameObject.GetComponent<BaseObject>().price;
           Destroy(collision.gameObject);
      }
 }
