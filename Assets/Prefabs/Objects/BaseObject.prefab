@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4491311725560628227}
   m_Layer: 0
   m_Name: BaseObject
-  m_TagString: Untagged
+  m_TagString: BaseObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,8 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 80
   lerpDuration: 0.5
-  targetPoint: {x: 0, y: 0, z: 0}
-  tempTargetPoint: {x: 0, y: 0, z: 0}
 --- !u!61 &6476607720966493787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111,7 +109,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -147,4 +145,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

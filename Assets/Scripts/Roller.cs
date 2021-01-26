@@ -6,7 +6,7 @@ public class Roller : MonoBehaviour
 {
      public GameObject targetPoint;
 
-     private void OnTriggerEnter2D(Collider2D collision)
+     private void OnCollisionEnter2D(Collision2D collision)
      {
           collision.gameObject.GetComponent<BaseObject>().SetTargetPosition(targetPoint.transform.position);
      }

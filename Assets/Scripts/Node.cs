@@ -19,6 +19,7 @@ public class Node : MonoBehaviour
      private void OnMouseEnter()
      {
           rend.material.color = hoverColor;
+          //Debug.Log("Mouse in " + transform.position);
      }
      private void OnMouseExit()
      {

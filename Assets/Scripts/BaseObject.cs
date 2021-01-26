@@ -13,22 +13,33 @@ public class BaseObject : MonoBehaviour
      private Vector3 tempTargetPoint;
      private float elapsedTime;
 
+     private bool newTarget;
+
      private void Start()
      {
           elapsedTime = 0;
           lastPoint = transform.position;
           targetPoint = transform.position;
+          newTarget = false;
      }
      private void Update()
      {
-          if (transform.position != targetPoint)
+          if (elapsedTime < lerpDuration && newTarget)
           {
                transform.position = Vector3.Lerp(lastPoint, targetPoint, elapsedTime / lerpDuration);
           }
           else
           {
+               newTarget = false;
+               transform.position = targetPoint;
                lastPoint = transform.position;
-               targetPoint = tempTargetPoint;
+
+               if (targetPoint != tempTargetPoint)
+               {
+                    newTarget = true;
+                    targetPoint = tempTargetPoint;
+               }
+               
                elapsedTime = 0;
           }
 

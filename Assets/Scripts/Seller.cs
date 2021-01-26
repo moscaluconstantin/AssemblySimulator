@@ -10,8 +10,7 @@ public class Seller : MonoBehaviour
      {
           Money = 0;
      }
-
-     private void OnTriggerEnter2D(Collider2D collision)
+     private void OnCollisionEnter2D(Collision2D collision)
      {
           Money += collision.gameObject.GetComponent<BaseObject>().price;
           Destroy(collision.gameObject);

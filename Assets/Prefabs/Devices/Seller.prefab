@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3485381403708008951}
   - component: {fileID: 6791700216429082023}
   - component: {fileID: 2402423273588756977}
-  - component: {fileID: 1647036311910799865}
+  - component: {fileID: 5357108973803869738}
   m_Layer: 0
   m_Name: Seller
   m_TagString: Untagged
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Money: 0
---- !u!61 &1647036311910799865
+--- !u!61 &5357108973803869738
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
