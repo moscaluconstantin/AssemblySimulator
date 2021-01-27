@@ -8,4 +8,9 @@ public class DeviceBlueprint
      public GameObject prefab;
      public string name;
      public int cost;
+
+     public int GetSellCost()
+     {
+          return (int)(cost * 0.9f);
+     }
 }

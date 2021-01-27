@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b93d1ceb3795bf64088c9d6deead6cef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c25552b0f0512428b5e9b12bab95b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.33962262, g: 0.30277675, b: 0.30277675, a: 0}
+  buildSelectColor: {r: 0.06880884, g: 0.8396226, b: 0.051486313, a: 0}
+  sellSelectColor: {r: 0.9056604, g: 0.021359911, b: 0.021359911, a: 0}
+  device: {fileID: 0}
+  deviceBlueprint:
+    prefab: {fileID: 0}
+    name: 
+    cost: 0
 --- !u!61 &5525585332001386721
 BoxCollider2D:
   m_ObjectHideFlags: 0

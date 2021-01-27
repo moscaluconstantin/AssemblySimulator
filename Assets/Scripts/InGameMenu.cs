@@ -1,10 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InGameMenu : MonoBehaviour
 {
+     public static InGameMenu instance;
+
      public GameObject shopMenu;
+     public GameObject shopContextMenu;
+
+     private void Awake()
+     {
+          if (instance == null)
+          {
+               instance = this;
+               return;
+          }
+          Debug.Log("More than one menu.");
+     }
 
      public void PlayPause()
      {
@@ -18,6 +32,30 @@ public class InGameMenu : MonoBehaviour
      }
      public void OpenShopMenu()
      {
-          shopMenu.SetActive(!shopMenu.activeSelf);
+          shopMenu.SetActive(true);
+     }
+     public void CloseShopMenu()
+     {
+          shopMenu.SetActive(false);
+     }
+     public void OpenShopContextMenu()
+     {
+          shopContextMenu.SetActive(true);
+     }
+     public void CloseShopContextMenu()
+     {
+          shopContextMenu.SetActive(false);
+     }
+     public void ConfirmShopMenuActions()
+     {
+          Pointer.state = PointerState.Idle;
+          BuildManager.instance.BuildOnSelectedNodes();
+          CloseShopContextMenu();
+     }
+     public void DiscardShopMenuActions()
+     {
+          Pointer.state = PointerState.Idle;
+          BuildManager.instance.ClearNodesList();
+          CloseShopContextMenu();
      }
 }
