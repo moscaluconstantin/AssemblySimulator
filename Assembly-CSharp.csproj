@@ -57,18 +57,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Node.cs" />
-    <Compile Include="Assets\Scripts\BuildManager.cs" />
+    <Compile Include="Assets\Scripts\GameControllingScripts\Pointer.cs" />
+    <Compile Include="Assets\Scripts\GameControllingScripts\BuildManager.cs" />
     <Compile Include="Assets\Scripts\BaseObject.cs" />
-    <Compile Include="Assets\Scripts\DeviceBlueprint.cs" />
-    <Compile Include="Assets\Scripts\SimulationStats.cs" />
-    <Compile Include="Assets\Scripts\Roller.cs" />
-    <Compile Include="Assets\Scripts\InGameMenu.cs" />
-    <Compile Include="Assets\Scripts\Starter.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Seller.cs" />
-    <Compile Include="Assets\Scripts\Shop.cs" />
-    <Compile Include="Assets\Scripts\Pointer.cs" />
-    <Compile Include="Assets\Scripts\PointerState.cs" />
+    <Compile Include="Assets\Scripts\MenuScripts\DeviceBlueprint.cs" />
+    <Compile Include="Assets\Scripts\GameControllingScripts\SimulationStats.cs" />
+    <Compile Include="Assets\Scripts\DeviceScripts\Roller.cs" />
+    <Compile Include="Assets\Scripts\GameControllingScripts\PointerState.cs" />
+    <Compile Include="Assets\Scripts\MenuScripts\InGameMenu.cs" />
+    <Compile Include="Assets\Scripts\DeviceScripts\Starter.cs" />
+    <Compile Include="Assets\Scripts\GameControllingScripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\DeviceScripts\Seller.cs" />
+    <Compile Include="Assets\Scripts\MenuScripts\Shop.cs" />
+    <Compile Include="Assets\Scripts\DeviceScripts\BaseDeviceActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

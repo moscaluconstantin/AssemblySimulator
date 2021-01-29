@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6791700216429082023}
   - component: {fileID: 2402423273588756977}
   - component: {fileID: 5357108973803869738}
+  - component: {fileID: 2554203736679384967}
   m_Layer: 0
   m_Name: Seller
   m_TagString: Untagged
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b93d1ceb3795bf64088c9d6deead6cef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7115d717718374c41b6e42617d51bb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Money: 0
 --- !u!61 &5357108973803869738
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,3 +123,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2554203736679384967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4300935439898794227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8ccb843142a494891dea1bf326d14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

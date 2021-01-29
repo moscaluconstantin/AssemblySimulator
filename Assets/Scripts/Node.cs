@@ -14,70 +14,102 @@ public class Node : MonoBehaviour
      [HideInInspector]
      public DeviceBlueprint deviceBlueprint;
 
+     //private GameObject nodeCovering;
      private Renderer rend;
      private Color startColor;
-     private bool isSelected;
+     public bool isSelected;
 
      private BuildManager buildManager;
+     private InGameMenu inGameMenu;
 
      private void Start()
      {
           rend = GetComponent<Renderer>();
+          
           startColor = rend.material.color;
+          //nodeCovering.SetActive(false);
+
           buildManager = BuildManager.instance;
+          inGameMenu = InGameMenu.instance;
           isSelected = false;
+     }
+     private void OnMouseDown()
+     {
+          if (EventSystem.current.IsPointerOverGameObject())
+               return;
+
+          if (!buildManager.CanBuild)
+               return;
+
+          if (device != null)
+               return;
+
+          if (Pointer.state == PointerState.Build)
+               buildManager.BuildDeviceOn(this);
      }
      //private void OnMouseEnter()
      //{
      //     if (EventSystem.current.IsPointerOverGameObject())
      //          return;
 
-     //     if (!buildManager.CanBuild)
-     //          return;
-
-     //     rend.material.color = hoverColor;
+          
      //}
-     //private void OnMouseExit()
+
+     //public void SetNodeCoveringToIdleState()
      //{
      //     rend.material.color = startColor;
+     //     nodeCovering.SetActive(false);
      //}
-     private void OnMouseDown()
-     {
-          if (EventSystem.current.IsPointerOverGameObject())
-               return;
+     //public void SelectThisNode()
+     //{
+     //     if (isSelected)
+     //          return;
 
-          //if (!buildManager.CanBuild)
-          //     return;
+     //     int selectedPrice = 0;
 
-          //if (device != null)
-          //{
-          //     Debug.Log("Can't build here.");
-          //     return;
-          //}
+     //     switch (Pointer.state)
+     //     {
+     //          case PointerState.Build:
+     //               nodeCovering.SetActive(true);
+     //               rend.material.color = buildSelectColor;
 
-          //buildManager.BuildDeviceOn(this);
+     //               selectedPrice = -buildManager.GetDeviceToBuild().cost;
+     //               break;
+     //          case PointerState.Sell:
+     //               nodeCovering.SetActive(true);
+     //               rend.material.color = sellSelectColor;
 
-          if (!isSelected)
-          {
-               switch (Pointer.state)
-               {
-                    case PointerState.Build:
-                         rend.material.color = buildSelectColor;
-                         break;
-                    case PointerState.Sell:
-                         rend.material.color = sellSelectColor;
-                         break;
-               }
-               buildManager.AddNodeToList(this);
-               isSelected = true;
-          }
-          else
-          {
-               rend.material.color = startColor;
-               buildManager.RemoveNodeFromList(this);
-               isSelected = false;
-          }
-     }
+     //               selectedPrice = deviceBlueprint.cost;
+     //               break;
+     //     }
+     //     buildManager.AddNodeToList(this);
+     //     SimulationStats.SelectedValue += selectedPrice;
+     //     inGameMenu.UpdateContextMenuText();
+     //     isSelected = true;
+     //}
+     //public void UnselectThisNode()
+     //{
+     //     if (!isSelected)
+     //          return;
 
-     
+     //     int selectedPrice = 0;
+
+     //     switch (Pointer.state)
+     //     {
+     //          case PointerState.Build:
+     //               //rend.material.color = buildSelectColor;
+     //               selectedPrice = buildManager.GetDeviceToBuild().cost;
+     //               inGameMenu.UpdateContextMenuText();
+     //               break;
+     //          case PointerState.Sell:
+     //               //rend.material.color = sellSelectColor;
+     //               selectedPrice = -deviceBlueprint.cost;
+     //               break;
+     //     }
+     //     SetNodeCoveringToIdleState();
+     //     buildManager.RemoveNodeFromList(this);
+     //     SimulationStats.SelectedValue -= selectedPrice;
+     //     inGameMenu.UpdateContextMenuText();
+     //     isSelected = false;
+     //}
 }
