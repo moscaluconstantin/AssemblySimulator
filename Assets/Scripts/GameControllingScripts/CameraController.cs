@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
      public float maxZ = 80;
 
      public bool canMove = true;
+     public bool canScroll = true;
      public bool mouseControll = true;
      public bool keyControll = true;
 
@@ -58,6 +59,9 @@ public class CameraController : MonoBehaviour
           {
                transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
           }
+
+          if (!canScroll)
+               return;
 
           ApplyZoom();
      }

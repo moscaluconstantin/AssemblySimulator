@@ -1,1 +1,1 @@
-﻿public enum PointerState { Idle, Build, Move, Sell }
+﻿public enum PointerState { Idle, Build, Move, Rotate, Sell }

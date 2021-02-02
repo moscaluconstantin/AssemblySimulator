@@ -8,7 +8,6 @@ public class BuildManager : MonoBehaviour
      public string blueprintName;
 
      private DeviceBlueprint deviceToBuild;
-     //public List<Node> selectedNodes;
 
      public bool CanBuild { get { return deviceToBuild != null; } }
 

@@ -6,25 +6,35 @@ public class BaseDeviceActions : MonoBehaviour
 {
      private Node parrentNode;
      private BuildManager buildManager;
+     private MoveManager moveManager;
 
      private void Start()
      {
           buildManager = BuildManager.instance;
+          moveManager = MoveManager.instance;
      }
      private void OnMouseDown()
      {
-          //Debug.Log("Clicked on device: " + gameObject.transform.position);
-          if (Pointer.state == PointerState.Sell)
+          switch (Pointer.state)
           {
-               //Debug.Log("Trying to sell the device: " + gameObject.transform.position);
-               buildManager.SellDeviceFrom(parrentNode);
-               return;
+               case PointerState.Sell:
+                    buildManager.SellDeviceFrom(parrentNode);
+                    break;
+               case PointerState.Rotate:
+                    gameObject.transform.Rotate(new Vector3(0, 0, 90), Space.Self);
+                    break;
+               case PointerState.Move:
+                    moveManager.AddDevice(this);
+                    break;
           }
      }
 
      public void SetParrentNode(Node node)
      {
           parrentNode = node;
-          //Debug.Log("New parrentNode: " + node.transform.position);
+     }
+     public Node GetParrentNode()
+     {
+          return parrentNode;
      }
 }

@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-     public DeviceBlueprint[] devices;
+     public DeviceBlueprint starter;
+     public DeviceBlueprint roller;
+     public DeviceBlueprint seller;
 
      private BuildManager buildManager;
      private InGameMenu inGameMenu;
@@ -24,40 +26,18 @@ public class Shop : MonoBehaviour
      }
 
      public void SelectStarter()
-     {
-          foreach (var device in devices)
-          {
-               if (device.name == "Starter")
-               {
-                    buildManager.SelectDeviceToBuild(device);
-                    SelectMenuImpact();
-                    return;
-               }
-          }    
+     {   
+          buildManager.SelectDeviceToBuild(starter);
+          SelectMenuImpact();
      }
      public void SelectRoller()
      {
-          foreach (var device in devices)
-          {
-               if (device.name == "Roller")
-               {
-                    buildManager.SelectDeviceToBuild(device);
-                    SelectMenuImpact();
-                    return;
-               }
-          }
+          buildManager.SelectDeviceToBuild(roller);
+          SelectMenuImpact();
      }
      public void SelectSeller()
      {
-          foreach (var device in devices)
-          {
-               if (device.name == "Seller")
-               {
-                    buildManager.SelectDeviceToBuild(device);
-                    SelectMenuImpact();
-                    return;
-               }
-          }
-          
+          buildManager.SelectDeviceToBuild(seller);
+          SelectMenuImpact();
      }
 }
