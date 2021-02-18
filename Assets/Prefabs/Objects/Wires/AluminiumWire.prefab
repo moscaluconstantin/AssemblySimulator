@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iD: 0
-  price: 80
+  price: 100
   lerpDuration: 0.5
   lifeDuration: 3
 --- !u!61 &6476607720966493787

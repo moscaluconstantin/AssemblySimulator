@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SimpleDeviceScript : MonoBehaviour
+public class SimpleDevice : MonoBehaviour
 {
      public GameObject[] prefabs;
      public GameObject generationPoint;
      public GameObject targetPoint;
 
      public float generationPeriod = 1f;
-     private float passedTime = 0f;
+     public float passedTime = 0f;
      private bool isWorking;
-     private GameObject generationPrefab;
+     //private GameObject generationPrefab;
 
      private Queue<int> inputQueue;
 
@@ -22,17 +22,17 @@ public class SimpleDeviceScript : MonoBehaviour
      {
           CorrectWorkingState();
           //inGameMenu = InGameMenu.instance;
-          generationPrefab = null;
+          //generationPrefab = null;
           inputQueue = new Queue<int>();
      }
      private void Update()
      {
-          if (generationPrefab == null)
+          if (inputQueue.Count == 0)
                return;
-
+          Debug.Log("queue isn't null.");
           if (!isWorking)
                return;
-
+          Debug.Log("Device is working.");
           passedTime += Time.deltaTime;
 
           if (passedTime >= generationPeriod)
@@ -45,11 +45,12 @@ public class SimpleDeviceScript : MonoBehaviour
      private void OnCollisionEnter2D(Collision2D collision)
      {
           BaseObject baseObject = collision.gameObject.GetComponent<BaseObject>();
-          if (baseObject.iD == 1 || baseObject.iD == 2)
-          {
-               inputQueue.Enqueue(baseObject.iD);
-               Debug.Log("Total: " + inputQueue.Count + "; New: " + baseObject.iD);
-          }
+          
+          if (baseObject.iD < 1 || baseObject.iD > 2)
+               return;
+
+          inputQueue.Enqueue(baseObject.iD);
+          Destroy(collision.gameObject);
      }
      //private void OnMouseDown()
      //{
@@ -62,7 +63,13 @@ public class SimpleDeviceScript : MonoBehaviour
 
      private void GenerateNewObject()
      {
-          GameObject newObject = Instantiate(generationPrefab, generationPoint.transform.position, Quaternion.identity);
+          if (inputQueue.Count == 0)
+               return;
+          
+          int prefabID = inputQueue.Dequeue();
+          GameObject newItem = prefabs[prefabID - 1];
+          
+          GameObject newObject = Instantiate(newItem, generationPoint.transform.position, Quaternion.identity);
           newObject.GetComponent<BaseObject>().SetTargetPosition(targetPoint.transform.position);
      }
      public void CorrectWorkingState()

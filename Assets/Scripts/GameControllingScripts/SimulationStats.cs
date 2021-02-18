@@ -13,7 +13,7 @@ public class SimulationStats : MonoBehaviour
 
      private void Start()
      {
-          Money = 10000;
+          Money = 1000000;
           Simulating = false;
      }
      private void Update()

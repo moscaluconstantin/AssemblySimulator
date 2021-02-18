@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
      public DeviceBlueprint starter;
      public DeviceBlueprint roller;
      public DeviceBlueprint seller;
+     public DeviceBlueprint wireDrawer;
 
      private BuildManager buildManager;
      private InGameMenu inGameMenu;
@@ -42,9 +43,8 @@ public class Shop : MonoBehaviour
      }
      public void SelectWireDrawer()
      {
-          //buildManager.SelectDeviceToBuild(seller);
+          buildManager.SelectDeviceToBuild(wireDrawer);
           SelectMenuImpact();
-          Debug.Log("Wire Drawer selected.");
      }
      public void SelectSplitter()
      {

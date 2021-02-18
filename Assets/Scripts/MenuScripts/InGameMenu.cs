@@ -66,6 +66,13 @@ public class InGameMenu : MonoBehaviour
           {
                starter.GetComponent<Starter>().CorrectWorkingState();
           }
+
+          GameObject[] simpleDevices = GameObject.FindGameObjectsWithTag("SimpleDevice");
+
+          foreach (var simpleDevice in simpleDevices)
+          {
+               simpleDevice.GetComponent<SimpleDevice>().CorrectWorkingState();
+          }
      }
      public void OpenShopMenu()
      {

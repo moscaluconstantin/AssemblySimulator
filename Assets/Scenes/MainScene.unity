@@ -8504,6 +8504,10 @@ MonoBehaviour:
     prefab: {fileID: 4300935439898794227, guid: 8332aadcf1c99754297f273594a60055, type: 3}
     name: Seller
     cost: 5000
+  wireDrawer:
+    prefab: {fileID: 7123807287388363624, guid: 18eb5a5f9d6fa594d8d2a26d9dc248ec, type: 3}
+    name: WireDrawer
+    cost: 10000
 --- !u!4 &785446698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3092191260726379673, guid: e3e94d17bc700824293567ac829928dd, type: 3}

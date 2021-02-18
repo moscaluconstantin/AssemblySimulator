@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 101545038466751232}
   m_Layer: 0
   m_Name: WireDrawer
-  m_TagString: Untagged
+  m_TagString: SimpleDevice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   generationPoint: {fileID: 8606095846429820269}
   targetPoint: {fileID: 5288765365535866139}
   generationPeriod: 1
+  passedTime: 0
+  isWorking: 0
 --- !u!61 &2038753414848479499
 BoxCollider2D:
   m_ObjectHideFlags: 0

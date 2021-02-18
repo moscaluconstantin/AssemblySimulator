@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BaseObject
   - Starter
+  - SimpleDevice
   layers:
   - Default
   - TransparentFX
