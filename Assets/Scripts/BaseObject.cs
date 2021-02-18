@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseObject : MonoBehaviour
 {
+     public int iD;
      public int price;
      public float lerpDuration;
      public float lifeDuration;

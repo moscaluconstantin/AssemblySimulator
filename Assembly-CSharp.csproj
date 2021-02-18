@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\GameControllingScripts\Pointer.cs" />
+    <Compile Include="Assets\Scripts\ObjectSellBlueprint.cs" />
     <Compile Include="Assets\Scripts\DeviceScripts\BaseDeviceActions.cs" />
     <Compile Include="Assets\Scripts\GameControllingScripts\BuildManager.cs" />
     <Compile Include="Assets\Scripts\BaseObject.cs" />
@@ -67,10 +68,12 @@
     <Compile Include="Assets\Scripts\GameControllingScripts\PointerState.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\InGameMenu.cs" />
     <Compile Include="Assets\Scripts\DeviceScripts\Starter.cs" />
+    <Compile Include="Assets\Scripts\MenuScripts\StarterShop.cs" />
+    <Compile Include="Assets\Scripts\GameControllingScripts\MoveManager.cs" />
     <Compile Include="Assets\Scripts\GameControllingScripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DeviceScripts\Seller.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\Shop.cs" />
-    <Compile Include="Assets\Scripts\GameControllingScripts\MoveManager.cs" />
+    <Compile Include="Assets\Scripts\DeviceScripts\SimpleDeviceScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

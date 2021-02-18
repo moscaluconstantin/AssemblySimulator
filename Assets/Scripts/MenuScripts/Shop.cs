@@ -40,4 +40,34 @@ public class Shop : MonoBehaviour
           buildManager.SelectDeviceToBuild(seller);
           SelectMenuImpact();
      }
+     public void SelectWireDrawer()
+     {
+          //buildManager.SelectDeviceToBuild(seller);
+          SelectMenuImpact();
+          Debug.Log("Wire Drawer selected.");
+     }
+     public void SelectSplitter()
+     {
+          //buildManager.SelectDeviceToBuild(seller);
+          SelectMenuImpact();
+          Debug.Log("Splitter selected.");
+     }
+     public void SelectLeftSplitter()
+     {
+          //buildManager.SelectDeviceToBuild(seller);
+          SelectMenuImpact();
+          Debug.Log("Left Splitter selected.");
+     }
+     public void SelectRightSplitter()
+     {
+          //buildManager.SelectDeviceToBuild(seller);
+          SelectMenuImpact();
+          Debug.Log("Right Splitter selected.");
+     }
+     public void Select3WaySplitter()
+     {
+          //buildManager.SelectDeviceToBuild(seller);
+          SelectMenuImpact();
+          Debug.Log("3-Way Splitter selected.");
+     }
 }

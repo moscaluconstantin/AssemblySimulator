@@ -6,19 +6,37 @@ using UnityEngine.UI;
 public class InGameMenu : MonoBehaviour
 {
      public static InGameMenu instance;
-
      public CameraController cameraController;
+
+     [Header("Menus")]
      public GameObject shopMenu;
+     public GameObject starterContextMenu;
+     public GameObject starterShopMenu;
+     
+     [Header("Buttons")]
      public GameObject confirmationButton;
      public GameObject moveContextButtons;
      public GameObject moveContextMoveButton;
      public GameObject moveContextRotateButton;
+     public Button starterContextSelectionButton;
+
+     [Header("Colors")]
      public Color moveButtonsSelectedColor;
 
+     [Header("Sprites")]
+     public Sprite defaultStarterContextButtonSprite;
+     public Sprite aluminiumStarterContextButtonSprite;
+     public Sprite copperStarterContextButtonSprite;
+     public Sprite siliconStarterContextButtonSprite;
+
      private BuildManager buildManager;
+     private StarterShop starterShop;
      private Image moveContextMoveButtonRenderer;
      private Image moveContextRotateButtonRenderer;
+     private Image starterContextSelectionButtonImage;
      private Color moveButtonsStartColor;
+     private Starter selectedStarter;
+
 
      private void Awake()
      {
@@ -33,6 +51,7 @@ public class InGameMenu : MonoBehaviour
      private void Start()
      {
           buildManager = BuildManager.instance;
+          starterShop = starterShopMenu.GetComponent<StarterShop>();
           moveContextMoveButtonRenderer = moveContextMoveButton.GetComponent<Image>();
           moveContextRotateButtonRenderer = moveContextRotateButton.GetComponent<Image>();
           moveButtonsStartColor = moveContextMoveButtonRenderer.material.color;
@@ -60,6 +79,31 @@ public class InGameMenu : MonoBehaviour
      {
           cameraController.canScroll = true;
           shopMenu.SetActive(false);
+     }
+     public void OpenStarterContextMenu(Starter starter)
+     {
+          selectedStarter = starter;
+          cameraController.canScroll = false;
+          starterContextMenu.SetActive(true);
+          UpdateStarterContextMenu();
+     }
+     public void CloseStarterContextMenu()
+     {
+          cameraController.canScroll = true;
+          starterContextMenu.SetActive(false);
+          selectedStarter = null;
+     }
+     public void OpenStarterShopMenu()
+     {
+          starterContextMenu.SetActive(false);
+          starterShopMenu.SetActive(true);
+          starterShop.starter = selectedStarter;
+     }
+     public void CloseStarterShopMenu()
+     {
+          starterShopMenu.SetActive(false);
+          starterContextMenu.SetActive(true);
+          UpdateStarterContextMenu();
      }
      public void SellButtonAction()
      {
@@ -116,5 +160,27 @@ public class InGameMenu : MonoBehaviour
      public void UpdateContextMenuText()
      {
           
+     }
+
+     private void UpdateStarterContextMenu()
+     {
+          if (starterContextSelectionButtonImage == null)
+               starterContextSelectionButtonImage = starterContextSelectionButton.GetComponent<Image>();
+
+          switch (selectedStarter.prefabID)
+          {
+               case 1:
+                    starterContextSelectionButtonImage.sprite = aluminiumStarterContextButtonSprite;
+                    break;
+               case 2:
+                    starterContextSelectionButtonImage.sprite = copperStarterContextButtonSprite;
+                    break;
+               case 3:
+                    starterContextSelectionButtonImage.sprite = siliconStarterContextButtonSprite;
+                    break;
+               default:
+                    starterContextSelectionButtonImage.sprite = defaultStarterContextButtonSprite;
+                    break;
+          }
      }
 }
