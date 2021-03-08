@@ -27,13 +27,15 @@ public class InGameMenu : MonoBehaviour
      public Sprite defaultStarterContextButtonSprite;
      public Sprite aluminiumStarterContextButtonSprite;
      public Sprite copperStarterContextButtonSprite;
+     public Sprite goldStarterContextButtonSprite;
+     public Sprite ironStarterContextButtonSprite;
      public Sprite siliconStarterContextButtonSprite;
 
      private BuildManager buildManager;
      private StarterShop starterShop;
      private Image moveContextMoveButtonRenderer;
      private Image moveContextRotateButtonRenderer;
-     private Image starterContextSelectionButtonImage;
+     private Image starterContextSelectionButtonRenderer;
      private Color moveButtonsStartColor;
      private Starter selectedStarter;
 
@@ -171,22 +173,28 @@ public class InGameMenu : MonoBehaviour
 
      private void UpdateStarterContextMenu()
      {
-          if (starterContextSelectionButtonImage == null)
-               starterContextSelectionButtonImage = starterContextSelectionButton.GetComponent<Image>();
+          if (starterContextSelectionButtonRenderer == null)
+               starterContextSelectionButtonRenderer = starterContextSelectionButton.GetComponent<Image>();
 
           switch (selectedStarter.prefabID)
           {
                case 1:
-                    starterContextSelectionButtonImage.sprite = aluminiumStarterContextButtonSprite;
+                    starterContextSelectionButtonRenderer.sprite = aluminiumStarterContextButtonSprite;
                     break;
                case 2:
-                    starterContextSelectionButtonImage.sprite = copperStarterContextButtonSprite;
+                    starterContextSelectionButtonRenderer.sprite = copperStarterContextButtonSprite;
                     break;
                case 3:
-                    starterContextSelectionButtonImage.sprite = siliconStarterContextButtonSprite;
+                    starterContextSelectionButtonRenderer.sprite = goldStarterContextButtonSprite;
+                    break;
+               case 4:
+                    starterContextSelectionButtonRenderer.sprite = ironStarterContextButtonSprite;
+                    break;
+               case 5:
+                    starterContextSelectionButtonRenderer.sprite = siliconStarterContextButtonSprite;
                     break;
                default:
-                    starterContextSelectionButtonImage.sprite = defaultStarterContextButtonSprite;
+                    starterContextSelectionButtonRenderer.sprite = defaultStarterContextButtonSprite;
                     break;
           }
      }

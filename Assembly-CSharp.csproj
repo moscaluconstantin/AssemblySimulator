@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\GameControllingScripts\Pointer.cs" />
-    <Compile Include="Assets\Scripts\ObjectSellBlueprint.cs" />
     <Compile Include="Assets\Scripts\DeviceScripts\BaseDeviceActions.cs" />
     <Compile Include="Assets\Scripts\GameControllingScripts\BuildManager.cs" />
     <Compile Include="Assets\Scripts\BaseObject.cs" />

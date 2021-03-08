@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
      public DeviceBlueprint roller;
      public DeviceBlueprint seller;
      public DeviceBlueprint wireDrawer;
+     public DeviceBlueprint hydraulicPress;
 
      private BuildManager buildManager;
      private InGameMenu inGameMenu;
@@ -44,6 +45,11 @@ public class Shop : MonoBehaviour
      public void SelectWireDrawer()
      {
           buildManager.SelectDeviceToBuild(wireDrawer);
+          SelectMenuImpact();
+     }
+     public void SelectHydraulicPress()
+     {
+          buildManager.SelectDeviceToBuild(hydraulicPress);
           SelectMenuImpact();
      }
      public void SelectSplitter()

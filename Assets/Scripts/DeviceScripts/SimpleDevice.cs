@@ -10,29 +10,24 @@ public class SimpleDevice : MonoBehaviour
      public GameObject targetPoint;
 
      public float generationPeriod = 1f;
-     public float passedTime = 0f;
+     private float passedTime = 0f;
      private bool isWorking;
-     //private GameObject generationPrefab;
 
      private Queue<int> inputQueue;
-
-     //private InGameMenu inGameMenu;
 
      private void Start()
      {
           CorrectWorkingState();
-          //inGameMenu = InGameMenu.instance;
-          //generationPrefab = null;
           inputQueue = new Queue<int>();
      }
      private void Update()
      {
           if (inputQueue.Count == 0)
                return;
-          Debug.Log("queue isn't null.");
+          //Debug.Log("queue isn't null.");
           if (!isWorking)
                return;
-          Debug.Log("Device is working.");
+          //Debug.Log("Device is working.");
           passedTime += Time.deltaTime;
 
           if (passedTime >= generationPeriod)
@@ -46,21 +41,13 @@ public class SimpleDevice : MonoBehaviour
      {
           BaseObject baseObject = collision.gameObject.GetComponent<BaseObject>();
           
-          if (baseObject.iD < 1 || baseObject.iD > 2)
+          if (baseObject.iD < 1 || baseObject.iD > prefabs.Length)
                return;
 
           inputQueue.Enqueue(baseObject.iD);
           Destroy(collision.gameObject);
      }
-     //private void OnMouseDown()
-     //{
-     //     if (EventSystem.current.IsPointerOverGameObject())
-     //          return;
-
-     //     //if (Pointer.state == PointerState.Idle)
-     //     //     inGameMenu.OpenStarterContextMenu(this);
-     //}
-
+     
      private void GenerateNewObject()
      {
           if (inputQueue.Count == 0)

@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
      public static BuildManager instance;
-     public string blueprintName;
 
      private DeviceBlueprint deviceToBuild;
-
      public bool CanBuild { get { return deviceToBuild != null; } }
 
      private void Awake()
@@ -24,11 +20,6 @@ public class BuildManager : MonoBehaviour
      public void SelectDeviceToBuild(DeviceBlueprint device)
      {
           deviceToBuild = device;
-          blueprintName = device.name;
-     }
-     public DeviceBlueprint GetDeviceToBuild()
-     {
-          return deviceToBuild;
      }
      public void BuildDeviceOn(Node node)
      {
@@ -39,7 +30,7 @@ public class BuildManager : MonoBehaviour
 
           node.deviceBlueprint = deviceToBuild;
           node.device = (GameObject)Instantiate(deviceToBuild.prefab, node.transform.position, Quaternion.identity);
-          node.device.GetComponent<BaseDeviceActions>().SetParrentNode(node);
+          node.device.GetComponent<BaseDeviceActions>().SetParentNode(node);
      }
      public void SellDeviceFrom(Node node)
      {
@@ -51,31 +42,5 @@ public class BuildManager : MonoBehaviour
      public void ClearSelectedDeviceBlueprint()
      {
           deviceToBuild = null;
-          blueprintName = "";
      }
-     //public void AddNodeToList(Node node)
-     //{
-     //     selectedNodes.Add(node);
-     //}
-     //public void RemoveNodeFromList(Node node)
-     //{
-     //     selectedNodes.Remove(node);
-     //}
-     //public void ClearNodesList()
-     //{
-     //     foreach (Node node in selectedNodes)
-     //     {
-     //          node.isSelected = false;
-     //          node.SetNodeCoveringToIdleState();
-     //     }
-     //     selectedNodes.Clear();
-     //}
-     //public void BuildOnSelectedNodes()
-     //{
-     //     foreach (Node node in selectedNodes)
-     //     {
-     //          BuildDeviceOn(node);
-     //     }
-     //     ClearNodesList();
-     //}
 }

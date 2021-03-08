@@ -91,13 +91,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 5376359120408517460, guid: db6f86a3d95b5f64e9711ff066b92855, type: 3}
-  - {fileID: 5376359120408517460, guid: 141790d0427118645b1c4cf832e0b52d, type: 3}
+  - {fileID: 7546852850784674426, guid: db6f86a3d95b5f64e9711ff066b92855, type: 3}
+  - {fileID: 7856808766202915411, guid: 141790d0427118645b1c4cf832e0b52d, type: 3}
+  - {fileID: 6828357864371285390, guid: c9532f7433b8b3842b5241d892c6f00c, type: 3}
+  - {fileID: 1276687537914602800, guid: 08958a2925d43de4dbf47c6c504f0f8e, type: 3}
+  - {fileID: 3061537706315209143, guid: 1c11b0707ed4fae49af2a1b878ef752d, type: 3}
   generationPoint: {fileID: 8606095846429820269}
   targetPoint: {fileID: 5288765365535866139}
   generationPeriod: 1
-  passedTime: 0
-  isWorking: 0
 --- !u!61 &2038753414848479499
 BoxCollider2D:
   m_ObjectHideFlags: 0

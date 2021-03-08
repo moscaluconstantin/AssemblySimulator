@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveManager : MonoBehaviour
@@ -41,28 +39,27 @@ public class MoveManager : MonoBehaviour
           MoveDeviceToNode(deviceA, node);
           ResetDevices();
      }
-
+     
      private void MoveDeviceToNode(BaseDeviceActions deviceBaseAction, Node node)
      {
-          Node oldNode = deviceBaseAction.GetParrentNode();
+          Node oldNode = deviceBaseAction.GetParentNode();
           
           //new node settings
           node.deviceBlueprint = oldNode.deviceBlueprint;
           node.device = oldNode.device;
 
           //device settings
-          deviceBaseAction.SetParrentNode(node);
+          deviceBaseAction.SetParentNode(node);
           deviceBaseAction.gameObject.transform.position = node.gameObject.transform.position;
 
           //old node settings
           oldNode.deviceBlueprint = null;
           oldNode.device = null;
      }
-
      private void SwitchDevices()
      {
-          Node deviceAOldNode = deviceA.GetComponent<BaseDeviceActions>().GetParrentNode();
-          Node deviceBOldNode = deviceB.GetComponent<BaseDeviceActions>().GetParrentNode();
+          Node deviceAOldNode = deviceA.GetComponent<BaseDeviceActions>().GetParentNode();
+          Node deviceBOldNode = deviceB.GetComponent<BaseDeviceActions>().GetParentNode();
           
           MoveDeviceToNode(deviceA, switchNode);
           MoveDeviceToNode(deviceB, deviceAOldNode);

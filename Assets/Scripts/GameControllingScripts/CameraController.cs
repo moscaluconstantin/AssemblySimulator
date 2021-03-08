@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+     #region parametri de control
      public float panSpeed = 30f;
      public float panBorderThickness = 10f;
      public float scrollSpeed = 5f;
@@ -17,15 +16,13 @@ public class CameraController : MonoBehaviour
 
      private bool doMovement = true;
 
-     private enum Direction { Up, Down, Right, Left, None };
-
-
      private Camera cam;
      private float targetZoom;
      private float zoomFactor = 3f;
      private float zoomLerpSpeed = 10f;
      private float minZoom = 4.5f;
      private float maxZoom = 9f;
+     #endregion
 
      private void Start()
      {
@@ -43,11 +40,11 @@ public class CameraController : MonoBehaviour
           if (!doMovement)
                return;
 
-          if (IsMoveToUp())
+          if (IsMoveUp())
           {
                transform.Translate(Vector3.up * panSpeed * Time.deltaTime, Space.World);
           }
-          if (IsMoveToDown())
+          if (IsMoveDown())
           {
                transform.Translate(Vector3.down * panSpeed * Time.deltaTime, Space.World);
           }
@@ -66,7 +63,7 @@ public class CameraController : MonoBehaviour
           ApplyZoom();
      }
 
-     private bool IsMoveToUp()
+     private bool IsMoveUp()
      {
           if (Input.GetKey("w") && keyControll ||
                (Input.mousePosition.y >= Screen.height - panBorderThickness) && mouseControll)
@@ -74,7 +71,7 @@ public class CameraController : MonoBehaviour
 
           return false;
      }
-     private bool IsMoveToDown()
+     private bool IsMoveDown()
      {
           if (Input.GetKey("s") && keyControll ||
                (Input.mousePosition.y <= panBorderThickness) && mouseControll)

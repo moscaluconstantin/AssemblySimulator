@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Starter : MonoBehaviour
 {
-     public GameObject prefab;
      public GameObject generationPoint;
      public GameObject targetPoint;
      public int elementsPerSecond;

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseDeviceActions : MonoBehaviour
 {
-     private Node parrentNode;
+     private Node parentNode;
      private BuildManager buildManager;
      private MoveManager moveManager;
 
@@ -18,7 +16,7 @@ public class BaseDeviceActions : MonoBehaviour
           switch (Pointer.state)
           {
                case PointerState.Sell:
-                    buildManager.SellDeviceFrom(parrentNode);
+                    buildManager.SellDeviceFrom(parentNode);
                     break;
                case PointerState.Rotate:
                     gameObject.transform.Rotate(new Vector3(0, 0, 90), Space.Self);
@@ -29,12 +27,12 @@ public class BaseDeviceActions : MonoBehaviour
           }
      }
 
-     public void SetParrentNode(Node node)
+     public void SetParentNode(Node node)
      {
-          parrentNode = node;
+          parentNode = node;
      }
-     public Node GetParrentNode()
+     public Node GetParentNode()
      {
-          return parrentNode;
+          return parentNode;
      }
 }

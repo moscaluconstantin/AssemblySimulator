@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class StarterShop : MonoBehaviour
 {
      [Header("Prefabs")]
-     public GameObject aluminiumPrefab;
-     public GameObject copperPrefab;
-     public GameObject siliconPrefab;
+     public GameObject aluminiumRockPrefab;
+     public GameObject copperRockPrefab;
+     public GameObject goldenRockPrefab;
+     public GameObject ironRockPrefab;
+     public GameObject siliconRockPrefab;
 
      [Header("Optional")]
      public Starter starter;
@@ -26,15 +28,23 @@ public class StarterShop : MonoBehaviour
      }
      public void SelectAluminium()
      {
-          SetPrefab(aluminiumPrefab);
+          SetPrefab(aluminiumRockPrefab);
      }
      public void SelectCopper()
      {
-          SetPrefab(copperPrefab);
+          SetPrefab(copperRockPrefab);
+     }
+     public void SelectGold()
+     {
+          SetPrefab(goldenRockPrefab);
+     }
+     public void SelectIron()
+     {
+          SetPrefab(ironRockPrefab);
      }
      public void SelectSilicon()
      {
-          SetPrefab(siliconPrefab);
+          SetPrefab(siliconRockPrefab);
      }
 
      private void SetPrefab(GameObject prefab)

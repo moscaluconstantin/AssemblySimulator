@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseObject : MonoBehaviour
@@ -55,17 +53,6 @@ public class BaseObject : MonoBehaviour
 
      public void SetTargetPosition(Vector3 position)
      {
-          //if (targetPosition != position && tempTargetPosition == null)
-          //{
-          //     tempTargetPosition = position;
-          //}
-          //else
-          //{
-          //     lastPosition = transform.position;
-          //     targetPosition = position;
-          //     elapsedTime = 0;
-          //}
-
           tempTargetPoint = position;
      }
      public void Revive()
