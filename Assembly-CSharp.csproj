@@ -61,11 +61,13 @@
     <Compile Include="Assets\Scripts\DeviceScripts\BaseDeviceActions.cs" />
     <Compile Include="Assets\Scripts\GameControllingScripts\BuildManager.cs" />
     <Compile Include="Assets\Scripts\BaseObject.cs" />
+    <Compile Include="Assets\Scripts\DeviceScripts\SplitMode.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\DeviceBlueprint.cs" />
     <Compile Include="Assets\Scripts\GameControllingScripts\SimulationStats.cs" />
     <Compile Include="Assets\Scripts\DeviceScripts\Roller.cs" />
     <Compile Include="Assets\Scripts\GameControllingScripts\PointerState.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\InGameMenu.cs" />
+    <Compile Include="Assets\Scripts\DeviceScripts\Splitter.cs" />
     <Compile Include="Assets\Scripts\DeviceScripts\Starter.cs" />
     <Compile Include="Assets\Scripts\DeviceScripts\SimpleDevice.cs" />
     <Compile Include="Assets\Scripts\MenuScripts\StarterShop.cs" />

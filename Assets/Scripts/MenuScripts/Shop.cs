@@ -10,6 +10,11 @@ public class Shop : MonoBehaviour
      public DeviceBlueprint seller;
      public DeviceBlueprint wireDrawer;
      public DeviceBlueprint hydraulicPress;
+     public DeviceBlueprint splitter;
+     public DeviceBlueprint leftSplitter;
+     public DeviceBlueprint rightSplitter;
+     public DeviceBlueprint threeWaySplitter;
+
 
      private BuildManager buildManager;
      private InGameMenu inGameMenu;
@@ -54,26 +59,22 @@ public class Shop : MonoBehaviour
      }
      public void SelectSplitter()
      {
-          //buildManager.SelectDeviceToBuild(seller);
+          buildManager.SelectDeviceToBuild(splitter);
           SelectMenuImpact();
-          Debug.Log("Splitter selected.");
      }
      public void SelectLeftSplitter()
      {
-          //buildManager.SelectDeviceToBuild(seller);
+          buildManager.SelectDeviceToBuild(leftSplitter);
           SelectMenuImpact();
-          Debug.Log("Left Splitter selected.");
      }
      public void SelectRightSplitter()
      {
-          //buildManager.SelectDeviceToBuild(seller);
+          buildManager.SelectDeviceToBuild(rightSplitter);
           SelectMenuImpact();
-          Debug.Log("Right Splitter selected.");
      }
      public void Select3WaySplitter()
      {
-          //buildManager.SelectDeviceToBuild(seller);
+          buildManager.SelectDeviceToBuild(threeWaySplitter);
           SelectMenuImpact();
-          Debug.Log("3-Way Splitter selected.");
      }
 }

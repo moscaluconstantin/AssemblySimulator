@@ -8512,6 +8512,22 @@ MonoBehaviour:
     prefab: {fileID: 5572540927325069448, guid: 1d7248a51b900c941b014b21d00a71cd, type: 3}
     name: HydraulicPress
     cost: 30000
+  splitter:
+    prefab: {fileID: 3360549744560793379, guid: 26bf4e15c3beb59499fa09949630292c, type: 3}
+    name: Splitter
+    cost: 100000
+  leftSplitter:
+    prefab: {fileID: 7676610484832953983, guid: c74fd5e97c8443948b123bc6ad174255, type: 3}
+    name: LeftSplitter
+    cost: 100000
+  rightSplitter:
+    prefab: {fileID: 856338543141287790, guid: ea7e4d5a692646044b126b84ec019426, type: 3}
+    name: RightSplitter
+    cost: 100000
+  threeWaySplitter:
+    prefab: {fileID: 5761401665320460451, guid: 9fd6813ddfc4d5b40a4717b792c5f98d, type: 3}
+    name: 3WaySplitter
+    cost: 300000
 --- !u!4 &785446698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3092191260726379673, guid: e3e94d17bc700824293567ac829928dd, type: 3}
