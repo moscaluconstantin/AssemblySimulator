@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class StarterShop : MonoBehaviour
 {
+     #region Prefabs
      [Header("Prefabs")]
      public GameObject aluminiumRockPrefab;
      public GameObject copperRockPrefab;
      public GameObject goldenRockPrefab;
      public GameObject ironRockPrefab;
      public GameObject siliconRockPrefab;
+     #endregion
 
      [Header("Optional")]
      public Starter starter;

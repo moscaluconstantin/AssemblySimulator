@@ -7,6 +7,7 @@ TagManager:
   - BaseObject
   - Starter
   - SimpleDevice
+  - Crafter
   layers:
   - Default
   - TransparentFX

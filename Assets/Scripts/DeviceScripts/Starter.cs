@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -51,11 +49,6 @@ public class Starter : MonoBehaviour
                inGameMenu.OpenStarterContextMenu(this);
      }
 
-     private void GenerateNewObject()
-     {
-          GameObject newObject = Instantiate(generationPrefab, generationPoint.transform.position, Quaternion.identity);
-          newObject.GetComponent<BaseObject>().SetTargetPosition(targetPoint.transform.position);
-     }
      public void CorrectWorkingState()
      {
           isWorking = SimulationStats.Simulating;
@@ -68,5 +61,10 @@ public class Starter : MonoBehaviour
                generationPrefabID = 0;
           else
                generationPrefabID = generationPrefab.GetComponent<BaseObject>().iD;
+     }
+     private void GenerateNewObject()
+     {
+          GameObject newObject = Instantiate(generationPrefab, generationPoint.transform.position, Quaternion.identity);
+          newObject.GetComponent<BaseObject>().SetTargetPosition(targetPoint.transform.position);
      }
 }

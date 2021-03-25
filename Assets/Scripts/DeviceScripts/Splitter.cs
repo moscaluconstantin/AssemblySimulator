@@ -1,32 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 public class Splitter : MonoBehaviour
 {
      public SplitMode splitMode;
 
+     #region Generation Points
      [Header("Generation Points")]
      public GameObject firstOutput;
      public GameObject secondOutput;
      public GameObject thirdOutput;
-
+     #endregion
+     #region Target Points
      [Header("Target Points")]
      public GameObject firstTargetPoint;
      public GameObject secondTargetPoint;
      public GameObject thirdTargetPoint;
-
+     #endregion
+     #region Throughput Values
      [Header("Throughput Values")]
      public int firstThroughput;
      public int secondThroughput;
      public int thirdThroughput;
-
+     #endregion
+     #region Counters
      private int firstOutputCounter;
      private int secondOutputCounter;
      private int thirdOutputCounter;
      private int outputIndx;
+     #endregion
+
+     private InGameMenu inGameMenu;
 
      private void Start()
      {
+          inGameMenu = InGameMenu.instance;
+
           firstThroughput = 1;
           secondThroughput = 1;
           thirdThroughput = 1;
@@ -51,7 +60,7 @@ public class Splitter : MonoBehaviour
           }
           if (outputIndx == 2)
           {
-               if (splitMode == SplitMode.Double)
+               if (splitMode != SplitMode.Triple)
                     outputIndx = 1;
                else
                     outputIndx++;
@@ -63,7 +72,7 @@ public class Splitter : MonoBehaviour
                     return;
                }
 
-               if (splitMode == SplitMode.Double)
+               if (splitMode != SplitMode.Triple)
                {
                     ClearOutputCounters();
                     return;
@@ -79,6 +88,38 @@ public class Splitter : MonoBehaviour
                     return;
                }
                ClearOutputCounters();
+          }
+     }
+     private void OnMouseDown()
+     {
+          if (EventSystem.current.IsPointerOverGameObject())
+               return;
+
+          if (Pointer.state == PointerState.Idle)
+               inGameMenu.OpenSplitterContextMenu(this);
+     }
+
+     public void ModifyThroughput(int throughputIndx, int value)
+     {
+          switch (throughputIndx)
+          {
+               case 1:
+                    if (firstThroughput <= 1 && value < 0 || firstThroughput >= 99 && value > 0)
+                         return;
+                    firstThroughput += value;
+                    break;
+               case 2:
+                    if (secondThroughput <= 1 && value < 0 || secondThroughput >= 99 && value > 0)
+                         return;
+                    secondThroughput += value;
+                    break;
+               case 3:
+                    if (thirdThroughput <= 1 && value < 0 || thirdThroughput >= 99 && value > 0)
+                         return;
+                    thirdThroughput += value;
+                    break;
+
+               default:break;
           }
      }
 

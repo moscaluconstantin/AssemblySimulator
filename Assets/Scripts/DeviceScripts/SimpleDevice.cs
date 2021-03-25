@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class SimpleDevice : MonoBehaviour
 {
@@ -48,6 +46,11 @@ public class SimpleDevice : MonoBehaviour
           Destroy(collision.gameObject);
      }
      
+     public void CorrectWorkingState()
+     {
+          isWorking = SimulationStats.Simulating;
+          passedTime = 0;
+     }
      private void GenerateNewObject()
      {
           if (inputQueue.Count == 0)
@@ -58,10 +61,5 @@ public class SimpleDevice : MonoBehaviour
           
           GameObject newObject = Instantiate(newItem, generationPoint.transform.position, Quaternion.identity);
           newObject.GetComponent<BaseObject>().SetTargetPosition(targetPoint.transform.position);
-     }
-     public void CorrectWorkingState()
-     {
-          isWorking = SimulationStats.Simulating;
-          passedTime = 0;
      }
 }

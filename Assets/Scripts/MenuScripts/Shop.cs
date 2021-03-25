@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+     #region DeviceBlueprints
      public DeviceBlueprint starter;
      public DeviceBlueprint roller;
      public DeviceBlueprint seller;
@@ -14,7 +12,8 @@ public class Shop : MonoBehaviour
      public DeviceBlueprint leftSplitter;
      public DeviceBlueprint rightSplitter;
      public DeviceBlueprint threeWaySplitter;
-
+     public DeviceBlueprint crafter;
+     #endregion
 
      private BuildManager buildManager;
      private InGameMenu inGameMenu;
@@ -75,6 +74,11 @@ public class Shop : MonoBehaviour
      public void Select3WaySplitter()
      {
           buildManager.SelectDeviceToBuild(threeWaySplitter);
+          SelectMenuImpact();
+     }
+     public void SelectCrafter()
+     {
+          buildManager.SelectDeviceToBuild(crafter);
           SelectMenuImpact();
      }
 }

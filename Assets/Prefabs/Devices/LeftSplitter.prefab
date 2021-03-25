@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526dd0c7b9fe1f647888242376ef434d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splitMode: 0
+  splitMode: 1
   firstOutput: {fileID: 5487368120596990516}
   secondOutput: {fileID: 8005314310050664152}
   thirdOutput: {fileID: 0}

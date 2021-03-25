@@ -55,6 +55,11 @@ public class BaseObject : MonoBehaviour
      {
           tempTargetPoint = position;
      }
+     public void SetForcedTargetPosition(Vector3 position)
+     {
+
+          tempTargetPoint = position;
+     }
      public void Revive()
      {
           timeToLive = lifeDuration;

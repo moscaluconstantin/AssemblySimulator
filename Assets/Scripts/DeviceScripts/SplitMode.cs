@@ -1,1 +1,1 @@
-﻿public enum SplitMode { Double, Triple };
+﻿public enum SplitMode { Simple, Left, Right, Triple }
