@@ -31,6 +31,8 @@ public class InGameMenu : MonoBehaviour
      public Text leftSplitterContextMenuText;
      public Text centerSplitterContextMenuText;
      public Text rightSplitterContextMenuText;
+     public Text playButtonText;
+     public Text crafterContextMenuBlueprintText;
      #endregion
      #region Sprites
      [Header("Colors")]
@@ -79,23 +81,30 @@ public class InGameMenu : MonoBehaviour
      //Basic InGameMenu methods
      public void PlayPause()
      {
-          SimulationStats.Simulating = !SimulationStats.Simulating;
+          if (SimulationStats.Simulating)
+          {
+               SimulationStats.Simulating = false;
+               playButtonText.text = "Play";
+          }
+          else
+          {
+               SimulationStats.Simulating = true;
+               playButtonText.text = "Pause";
+          }
+          
           GameObject[] starters = GameObject.FindGameObjectsWithTag("Starter");
-
           foreach (var starter in starters)
           {
                starter.GetComponent<Starter>().CorrectWorkingState();
           }
 
           GameObject[] simpleDevices = GameObject.FindGameObjectsWithTag("SimpleDevice");
-
           foreach (var simpleDevice in simpleDevices)
           {
                simpleDevice.GetComponent<SimpleDevice>().CorrectWorkingState();
           }
 
           GameObject[] crafters = GameObject.FindGameObjectsWithTag("Crafter");
-
           foreach (var crafter in crafters)
           {
                crafter.GetComponent<Crafter>().CorrectWorkingState();
@@ -318,6 +327,7 @@ public class InGameMenu : MonoBehaviour
           cameraController.canScroll = false;
           selectedCrafter = crafter;
           crafterContextMenu.SetActive(true);
+          UpdateCrafterContextMenu();
      }
      public void CloseCrafterContextMenu()
      {
@@ -335,6 +345,14 @@ public class InGameMenu : MonoBehaviour
      {
           crafterContextMenu.SetActive(true);
           crafterShopMenu.SetActive(false);
+          UpdateCrafterContextMenu();
+     }
+     private void UpdateCrafterContextMenu()
+     {
+          if (selectedCrafter.blueprint != null)
+               crafterContextMenuBlueprintText.text = selectedCrafter.blueprint.name;
+          else
+               crafterContextMenuBlueprintText.text = "None";
      }
      #endregion
 }
