@@ -13,6 +13,6 @@ The application is a simulator of the production line in a plant. At the user's 
 ## Screens
 
 ![](./Screens/1.jpg)
-![](./Screens/2.JPG)
-![](./Screens/3.JPG)
-![](./Screens/4.JPG)
+![](./Screens/2.jpg)
+![](./Screens/3.jpg)
+![](./Screens/4.jpg)
